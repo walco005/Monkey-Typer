@@ -52,16 +52,16 @@ $(document).keyup(function(key) {
     //Checks if the character typed is the first character in the span "toType" and moves it to the span "typed"
     if($("#typeStyle").prop("checked")) {
         var letterToType = $("#toType").text().slice(0,1);
-        var keyCodeToType = alphabet.indexOf(letterToType) + 64;
+        var keyCodeToType = alphabet.indexOf(letterToType) + 65;
         var keyPressed = key.keyCode;
-        if(keyPressed = keyCodeToType) {
+        if(keyPressed == keyCodeToType) {
             var typed = $("#typed").text();
             typed += letterToType;
             $("#typed").text(typed);
             var type = $("#toType").text();
             type = type.substr(1, type.length);
             $("#toType").text(type);
-        };
+        }
     } else if(key.keyCode > 64 && key.keyCode < 91) {
         $("#gibberish").text($("#gibberish").text() + String.fromCharCode(key.keyCode));
     };
