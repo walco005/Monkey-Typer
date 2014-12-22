@@ -1,0 +1,37 @@
+h1 {
+    font-family: Arial, helvetica, sans-serif
+}
+
+<!--All of the CSS for typing words-->
+#typed2, #notTyped2 {
+    color: #C0C0C0;
+}
+
+#typed1, #notTyped1 {
+    color: #606060;
+}
+
+#word1, #typed {
+    color: #00FF00;
+}
+
+
+#typed2, #typed1, #current, #notTyped1, #notTyped2 {
+    text-transform: uppercase;
+    float: left;
+    width: 20%;
+    height: 40px;
+    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+#gibberish {
+    text-align:center;
+    width:100%;
+    text-transform: uppercase;
+    height: 40px;
+    font-size: 20px;
+    display:inline-block;
+}

@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Monkey Typer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!---->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="words.js"></script>
+</head>
+<body>
+    <h1 align=center>Monkey Typer</h1>
+    <div id="typing">
+        <div id="typed2"></div>
+        <div id="typed1"></div>
+        <div id="current">
+            <span id="typed"></span><span id="toType"></span>
+        </div>
+        <div id="notTyped1"></div>
+        <div id="notTyped2"></div>
+    </div>
+    <div id="gibberish"></div>
+    <div id="whichType">
+        Words?
+        <input id="typeStyle" type="checkbox" checked="checked" onClick="switchType()">
+    </div>
+    <!--Where the amt. of words, word-per-second, and so on displays-->
+    <div id="Information">
+        <div>Amount of Words: <span id="wordCount"></span></div>
+    </div>
+    <!--Where the monkeys, upgrades, etc. are shown-->
+    <div id="Display">
+
+    <div id="Monkeys">
+        <div class="Primate" id="M1"></div>
+        <div class="Primate" id="M2"></div>
+    </div>
+
+    </div>
+</body>
+</html>
