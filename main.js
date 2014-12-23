@@ -5,7 +5,7 @@ $(document).ready(function() {
     $("#gibberish").hide();
 });
 
-//An array of the alphabet, used to emulate keycodes (keycode for each letter is 64 + it's index.
+//An array of the alphabet, used to emulate keycodes (keycode for each letter is 65 + it's index.
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 // Initializes the first three words to type.

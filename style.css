@@ -2,9 +2,13 @@ h1 {
     font-family: Arial, helvetica, sans-serif
 }
 
-<!--All of the CSS for typing words-->
+
 #typed2, #notTyped2 {
     color: #C0C0C0;
+}
+
+.farType {
+    color: #C0C0C0
 }
 
 #typed1, #notTyped1 {
