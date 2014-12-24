@@ -1,5 +1,9 @@
 var wordCount = 0;
 
+var saved = {
+    wordCount: 0
+}
+
 $(document).ready(function() {
     initializeWords();
     $("#gibberish").hide();
@@ -18,6 +22,10 @@ function initializeWords() {
     $("#notTyped2").text(words[r3]);
 };
 
+function updateVal() {
+    $("#wordCount").text(Math.floor(saved.wordCount));
+};
+
 //Gives the "word bonus" of a word based on it's length. The average word has a length of 5 characters, so it divides the length by 5.
 function wordBonus(length) {
     var bonusLength = length/5;
@@ -31,8 +39,8 @@ function addWord(length) {
         wordLength++;
     };
     wordLength += wordBonus(length);
-    wordCount += wordLength;
-    $("#wordCount").text(Math.floor(wordCount));
+    saved.wordCount += wordLength;
+    $("#wordCount").text(Math.floor(saved.wordCount));
 };
 
 //Goes through an array printing the word, word length, and the word bonus.
@@ -108,6 +116,20 @@ function switchType() {
     }
 };
 
+//SAVING AND LOADING
+function save() {
+    localStorage['monkeySave'] = btoa(JSON.stringify(saved));
+}
+
+function load() {
+    var loaded = JSON.parse(atob(localStorage['monkeySave']));
+    var x;
+    saved = loaded;
+    updateVal();
+}
+
+function reset() {
+}
 
 window.setInterval(function() {
 
