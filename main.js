@@ -6,6 +6,7 @@ var saved = {
 
 $(document).ready(function() {
     initializeWords();
+    load();
     $("#gibberish").hide();
 });
 
@@ -122,6 +123,7 @@ function save() {
 }
 
 function load() {
+    if(!localStorage['monkeySave']) return;
     var loaded = JSON.parse(atob(localStorage['monkeySave']));
     var x;
     saved = loaded;
