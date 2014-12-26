@@ -45,18 +45,7 @@ function addWord(length) {
     $("#wordCount").text(Math.floor(saved.wordCount));
 };
 
-//Goes through an array printing the word, word length, and the word bonus.
-function printWordLength() {
-    var i = 0;
-    while (i < arr.length) {
-        console.log("Number " + (i));
-        var length = arr[i].length
-        console.log("Word: " + arr[i] + ", Length: " + length + ", Bonus: " + wordBonus(length));
-        console.log("");
-        i++;
-    }
-};
-
+//Everything in the keyup section is for the typing mechanics
 $(document).keyup(function(key) {
 
     //Checks if the character typed is the first character in the span "toType" and moves it to the span "typed"
