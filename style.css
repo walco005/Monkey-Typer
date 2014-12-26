@@ -27,7 +27,6 @@ h1 {
     height: 40px;
     text-align:center;
     display:inline-block;
-    vertical-align: middle;
     font-size: 20px;
 }
 
@@ -38,4 +37,28 @@ h1 {
     height: 40px;
     font-size: 20px;
     display:inline-block;
+}
+
+#middle {
+    height: 15%;
+}
+
+#save {
+    background-color: green;
+}
+
+#load {
+    background-color: red;
+}
+
+.thirty {
+    width: 33%;
+    float: left;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#btns {
+    background-color: #D0D0D0;
 }

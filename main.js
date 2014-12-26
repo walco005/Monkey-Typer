@@ -8,6 +8,7 @@ $(document).ready(function() {
     initializeWords();
     load();
     $("#gibberish").hide();
+    $(".btn-length").width($("#feed").width());
 });
 
 //An array of the alphabet, used to emulate keycodes (keycode for each letter is 65 + it's index.
@@ -120,6 +121,7 @@ function switchType() {
 //SAVING AND LOADING
 function save() {
     localStorage['monkeySave'] = btoa(JSON.stringify(saved));
+    console.log("Saved");
 }
 
 function load() {
@@ -130,8 +132,9 @@ function load() {
 }
 
 function reset() {
+    localStorage.clear();
 }
 
 window.setInterval(function() {
-
-}, 1000);
+    save();
+}, 60000);

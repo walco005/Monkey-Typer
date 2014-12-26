@@ -3,6 +3,7 @@
     <title>Monkey Typer</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <!---->
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="main.js"></script>
@@ -25,11 +26,31 @@
         <input id="typeStyle" type="checkbox" checked="checked" onClick="switchType()">
     </div>
     <!--Where the amt. of words, word-per-second, and so on displays-->
-    <div id="Information">
-        <div>Amount of Words: <span id="wordCount"></span></div>
-    </div>
-    <button onClick="save()">Save</button>
-    <button onClick="load()">Load</button>
+    <div id="middle" class="row">
+        <div id="wordButton" class="col-md-2">Words or Gibberish</div>
+        <div id="information" class="col-md-6">
+            <div>Amount of Words: <span id="wordCount"></span></div>
+        </div>
+        <div class="col-md-4 row-fluid" id="btns">
+            <span class="thirty">
+                <button onClick="save()" class="btn btn-default btn-length">Save</button>
+            </span>
+            <span class="thirty">
+                <button onClick="load()" class="btn btn-default btn-length">Load</button>
+            </span>
+            <span class="thirty">
+                <button class="btn btn-default btn-length">Options</button>
+            </span>
+            <span class="thirty">
+                <button class="btn btn-default btn-length" id="change">Changes</button>
+            </span>
+            <span class="thirty">
+                <button class="btn btn-default btn-length">Credits</button>
+            </span>
+            <span class="thirty">
+                <button class="btn btn-default btn-length" id="feed">Feedback</button>
+            </span>
+        </div>
     <!--Where the monkeys, upgrades, etc. are shown-->
     <div id="Display">
 
