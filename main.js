@@ -1,14 +1,19 @@
-var wordCount = 0;
 
 var saved = {
-    wordCount: 0
+    wordCount: 0,
+    wordB: .2,
+    money: 0,
+
 }
 
 $(document).ready(function() {
     initializeWords();
     load();
+    updateVal();
     $("#gibberish").hide();
     $(".btn-length").width($("#feed").width());
+    $("#upgrades").hide();
+    $("#prestige").hide();
 });
 
 //An array of the alphabet, used to emulate keycodes (keycode for each letter is 65 + it's index.
@@ -25,7 +30,9 @@ function initializeWords() {
 };
 
 function updateVal() {
+    console.log(saved.wordB);
     $("#wordCount").text(Math.floor(saved.wordCount));
+    $("#wordB").text(saved.wordB);
 };
 
 //Gives the "word bonus" of a word based on it's length. The average word has a length of 5 characters, so it divides the length by 5.
@@ -37,19 +44,19 @@ function wordBonus(length) {
 //Adds the specified amount to wordCount and updates the #wordCount div.
 function addWord(length) {
     var wordLength = 0;
-    if($("#typeStyle").prop("checked")) {
+    if($("#wButt").html() == "Words") {
         wordLength++;
     };
     wordLength += wordBonus(length);
     saved.wordCount += wordLength;
-    $("#wordCount").text(Math.floor(saved.wordCount));
+    updateVal();
 };
 
 //Everything in the keyup section is for the typing mechanics
 $(document).keyup(function(key) {
 
     //Checks if the character typed is the first character in the span "toType" and moves it to the span "typed"
-    if($("#typeStyle").prop("checked")) {
+    if($("#wButt").html() == "Words") {
         var letterToType = $("#toType").text().slice(0,1);
         var keyCodeToType = alphabet.indexOf(letterToType) + 65;
         var keyPressed = key.keyCode;
@@ -66,14 +73,14 @@ $(document).keyup(function(key) {
     };
 
     //Used in gibberish, it resets the text area once space is pressed.
-    if (key.keyCode == 32 && !$("#typeStyle").prop("checked")) {
+    if (key.keyCode == 32 && $("#wButt").html() == "Gibberish") {
         addWord($("#gibberish").text().length / 3);
         $("#gibberish").text("");
     };
 
     //Checks if space is being pressed as well as if the span #toType is empty, if so it moves the contents of each div to the left and populates
     //   the rightmost div with a random word from the array.
-    if((key.keyCode == 32) && $("#toType").text() == "" && $("#typeStyle").prop("checked")) {
+    if((key.keyCode == 32) && $("#toType").text() == "" && $("#wButt").html() == "Words") {
             addWord($("#typed").text().length);
             $("#typed2").text($("#typed1").text());
             $("#typed1").text($("#typed").text());
@@ -83,27 +90,18 @@ $(document).keyup(function(key) {
             var rand = Math.floor(Math.random() * words.length);
             $("#notTyped2").text(words[rand]);
     };
-
-    //A test to disable checkbox checking/unchecking via spacebar.
-    if(key.keyCode == 32) {
-        if( $("#typeStyle").prop("checked")) {
-            $("#typeStyle").prop("checked", true);
-        } else {
-            $("#typeStyle").prop("checked", false);
-        }
-    };
 });
 
 //Switches the typing system from typing words or "gibberish".
 function switchType() {
-    if($("#typeStyle").prop("checked")) {
+    if($("#wButt").html() == "Gibberish") {
         $("#typing").show();
         $("#gibberish").hide();
-    }
-
-    if(!$("#typeStyle").prop("checked")) {
+        $("#wButt").html("Words");
+    } else if($("#wButt").html() == "Words") {
         $("#typing").hide();
         $("#gibberish").show();
+        $("#wButt").html("Gibberish");
     }
 };
 

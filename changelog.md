@@ -1,3 +1,7 @@
+Version 0.00.27 - December 26, 2014
+    Non-working buttons are red
+    Added a framework for the last part of the page
+
 Version 0.00.25 - December 25, 2014  
     Autosaves once per minute
     Formatted the information and button sections

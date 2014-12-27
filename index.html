@@ -21,20 +21,16 @@
         <div id="notTyped2" class="farType"></div>
     </div>
     <div id="gibberish"></div>
-    <div id="whichType">
-        Words?
-        <input id="typeStyle" type="checkbox" checked="checked" onClick="switchType()">
-    </div>
     <!--Where the amt. of words, word-per-second, and so on displays-->
     <div id="middle" class="row">
         <div id="wordButton" class="col-md-2">
-            <button class="btn-primary btn-lg" id="wButt">Words or Gibberish</button>
+            <button class="btn-primary btn-lg" id="wButt" onClick="switchType()">Words</button>
         </div>
         <div id="information" class="col-md-6">
             <div class="col-md-6 info">Amount of Words: <span id="wordCount"></span></div>
             <div class="col-md-6 info">Word Bonus: <span id="wordB"></span></div>
+            <div class="col-md-6 info">Money: <span id="money"></span></div>
             <div class="col-md-6 info">Words Per Second: <span id="wps"></span></div>
-            <div class="col-md-6 info">Filler: <span></span></div>
             <div class="col-md-6 info">Filler: <span></span></div>
             <div class="col-md-6 info">Filler: <span></span></div>
         </div>
@@ -46,31 +42,41 @@
                 <button onClick="load()" class="btn btn-default btn-length">Load</button>
             </span>
             <span class="thirty">
-                <button class="btn btn-default btn-length">Options</button>
+                <button class="btn btn-default btn-length broken">Options</button>
             </span>
             <span class="thirty">
-                <button class="btn btn-default btn-length" id="change">Changes</button>
+                <button class="btn btn-default btn-length broken" id="change">Changes</button>
             </span>
             <span class="thirty">
-                <button class="btn btn-default btn-length">Credits</button>
+                <button class="btn btn-default btn-length broken">Credits</button>
             </span>
             <span class="thirty">
-                <button class="btn btn-default btn-length" id="feed">Feedback</button>
+                <button class="btn btn-default btn-length broken" id="feed">Feedback</button>
             </span>
         </div>
+    </div>
     <!--Where the monkeys, upgrades, etc. are shown-->
-    <div id="Display">
-
+    <div id="display">
+    <ul class="nav nav-tabs nav-justified" role="navigation">
+        <li role="presentation" class="active"><a href="#">Monkeys</a></li>
+        <li role="presentation" class="broken"><a href="#">Upgrades</a></li>
+        <li role="presentation" class="broken"><a href="#">Prestige</a></li>
+    </ul>
     <!--Should use Bootstrap grid system for these-->
-    <div id="Monkeys">
-        <div class="Primate" id="M1"></div>
-        <div class="Primate" id="M2"></div>
+    <div id="monkeys">
+        <div class="monk"></div>
+        <div class="monk"></div>
+        <div class="monk"></div>
+        <div class="monk"></div>
+        <div class="monk"></div>
+        <div class="monk"></div>
+        <div class="monk"></div>
+        <div class="monk"></div>
     </div>
 
-    <div id="Upgrades">
+    <div id="upgrades"></div>
 
-    </div>
-
+    <div id="prestige"></div>
     </div>
 </body>
 </html>
