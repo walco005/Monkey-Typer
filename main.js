@@ -52,9 +52,8 @@ function addWord(length) {
     updateVal();
 };
 
-//Everything in the keyup section is for the typing mechanics
-$(document).keyup(function(key) {
-
+//Keydown is used for typing words, to avoid the perceived "lag" in typing words
+$(document).keydown(function(key) {
     //Checks if the character typed is the first character in the span "toType" and moves it to the span "typed"
     if($("#wButt").html() == "Words") {
         var letterToType = $("#toType").text().slice(0,1);
@@ -68,18 +67,10 @@ $(document).keyup(function(key) {
             type = type.substr(1, type.length);
             $("#toType").text(type);
         }
-    } else if(key.keyCode > 64 && key.keyCode < 91) {
-        $("#gibberish").text($("#gibberish").text() + String.fromCharCode(key.keyCode));
-    };
+    }
 
-    //Used in gibberish, it resets the text area once space is pressed.
-    if (key.keyCode == 32 && $("#wButt").html() == "Gibberish") {
-        addWord($("#gibberish").text().length / 3);
-        $("#gibberish").text("");
-    };
-
-    //Checks if space is being pressed as well as if the span #toType is empty, if so it moves the contents of each div to the left and populates
-    //   the rightmost div with a random word from the array.
+    //Checks if space is being pressed as well as if the span #toType is empty, if so it moves the contents of each div to the left and
+    //  populates the rightmost div with a random word from the array.
     if((key.keyCode == 32) && $("#toType").text() == "" && $("#wButt").html() == "Words") {
             addWord($("#typed").text().length);
             $("#typed2").text($("#typed1").text());
@@ -89,7 +80,21 @@ $(document).keyup(function(key) {
             $("#notTyped1").text($("#notTyped2").text());
             var rand = Math.floor(Math.random() * words.length);
             $("#notTyped2").text(words[rand]);
-    };
+    }
+});
+//Keyup is used for typing gibberish and since it only takes in "keyup", it fixes holding down a key.
+$(document).keyup(function(key) {
+    if($("#wButt").html() == "Gibberish") {
+        if(key.keyCode > 64 && key.keyCode < 91) {
+            $("#gibberish").text($("#gibberish").text() + String.fromCharCode(key.keyCode));
+        }
+
+        //Used in gibberish, it resets the text area once space is pressed.
+        if (key.keyCode == 32) {
+            addWord($("#gibberish").text().length / 3);
+            $("#gibberish").text("");
+        }
+    }
 });
 
 //Switches the typing system from typing words or "gibberish".
