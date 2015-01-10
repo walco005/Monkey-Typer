@@ -21,12 +21,10 @@ var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 
 // Initializes the first three words to type.
 function initializeWords() {
-    var r1 = Math.floor(Math.random() * words.length);
-    var r2 = Math.floor(Math.random() * words.length);
-    var r3 = Math.floor(Math.random() * words.length);
-    $("#toType").text(words[r1]);
-    $("#notTyped1").text(words[r2]);
-    $("#notTyped2").text(words[r3]);
+    var r1 = Math.floor(Math.random() * dictionaries[0].length);
+    var r2 = Math.floor(Math.random() * dictionaries[0].length);
+    $("#toType").text(dictionaries[0][r1]);
+    $("#notTyped1").text(dictionaries[0][r2]);
 };
 
 function updateVal() {
@@ -73,13 +71,11 @@ $(document).keydown(function(key) {
     //  populates the rightmost div with a random word from the array.
     if((key.keyCode == 32) && $("#toType").text() == "" && $("#wButt").html() == "Words") {
             addWord($("#typed").text().length);
-            $("#typed2").text($("#typed1").text());
             $("#typed1").text($("#typed").text());
             $("#typed").text("");
             $("#toType").text($("#notTyped1").text());
-            $("#notTyped1").text($("#notTyped2").text());
-            var rand = Math.floor(Math.random() * words.length);
-            $("#notTyped2").text(words[rand]);
+            var rand = Math.floor(Math.random() * dictionaries[0].length);
+            $("#notTyped1").text(dictionaries[0][rand]);
     }
 });
 //Keyup is used for typing gibberish and since it only takes in "keyup", it fixes holding down a key.
@@ -107,6 +103,28 @@ function switchType() {
         $("#typing").hide();
         $("#gibberish").show();
         $("#wButt").html("Gibberish");
+    }
+};
+
+//Switch inbetween Monkeys, Upgrades, and Prestige.
+function switchDisplay() {
+    console.log("Trying to switch display");
+    console.log($(event.target).html());
+    if($(event.target).html() == "Monkeys"){
+        console.log("In the monkeys");
+        $("#monkeys").show();
+        $("#upgrades").hide();
+        $("#prestige").hide()
+    } else if($(event.target).html() == "Upgrades"){
+        console.log("Should be showing upgrades");
+        $("#monkeys").hide();
+        $("#upgrades").show();
+        $("#prestige").hide();
+    } else {
+        console.log("Should be showing prestige");
+        $("#prestige").show();
+        $("#monkeys").hide();
+        $("#upgrades").hide();
     }
 };
 

@@ -12,13 +12,11 @@
 <body>
     <h1 align=center>Monkey Typer</h1>
     <div id="typing">
-        <div id="typed2"></div>
         <div id="typed1"></div>
         <div id="current">
             <span id="typed"></span><span id="toType"></span>
         </div>
         <div id="notTyped1"></div>
-        <div id="notTyped2" class="farType"></div>
     </div>
     <div id="gibberish"></div>
     <!--Where the amt. of words, word-per-second, and so on displays-->
@@ -57,10 +55,10 @@
     </div>
     <!--Where the monkeys, upgrades, etc. are shown-->
     <div id="display">
-    <ul class="nav nav-tabs nav-justified" role="navigation">
+    <ul class="nav nav-tabs nav-justified" role="navigation" onClick="switchDisplay()">
         <li role="presentation" class="active"><a href="#">Monkeys</a></li>
-        <li role="presentation" class="broken"><a href="#">Upgrades</a></li>
-        <li role="presentation" class="broken"><a href="#">Prestige</a></li>
+        <li role="presentation" class="active"><a href="#">Upgrades</a></li>
+        <li role="presentation" class="active"><a href="#">Prestige</a></li>
     </ul>
     <!--Should use Bootstrap grid system for these-->
     <div id="monkeys">
@@ -74,9 +72,9 @@
         <div class="monk"></div>
     </div>
 
-    <div id="upgrades"></div>
+    <div id="upgrades">up</div>
 
-    <div id="prestige"></div>
+    <div id="prestige">pres</div>
     </div>
 </body>
 </html>
